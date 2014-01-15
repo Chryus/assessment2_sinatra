@@ -54,15 +54,44 @@ DROP TABLE wizards
 
 -- Create two data models for wizards. The wizards are going to have a name, an age and two powers each. Let's pretend we're in a world where wizards have many powers, but powers belong to one wizard (two wizards cant have the same power) Each power is going to have a name and a damage amount. Write out the sql to create the two schemas and some sample records. What are the costs/benefits of the two approaches? If you only see one way of doing this that's ok. Please explain any potential problems with your approach. What questions can this schema answer easily? What questions can this schema not answer easily?
 
+CREATE DATABASE wizards;
+CREATE DATABASE powers;
 
+CREATE TABLE wizards
+(
+name varchar (255),
+age int,
+power1 varchar (255),
+power2 varchar (255),
+);
+
+CREATE TABLE powers
+(
+name varchar (255),
+damage_amount int,
+wiard_id,
+);
+
+I can only see one way of doing this. This schema can easily answer which wizard has which has which power (when in the power table). On the other hand, I don't think it would do a good job of safegarding the relationship "powers belong to one wizard". Hmm. I'm not sure how to make that happen.
 
 Retrieve all the wizards with powers that have the letter "l" in them.
 
+SELECT * FROM wizards 
+WHERE Name LIKE 'l';
+
 Retrieve all the wizards who have a combined damage of 10 or more.
+
+SELECT * FROM wizards
+WHERE SUM(power1, power2) >= 10;
 
 Retrieve all the wizards sorted by their total damage. Your returned data should look like so.. wizard_name, total_damage.
 
+
+
 Create a wizard that has no powers.
+
+INSERT INTO wizards(name, age)
+VALUES ('Jasper', 5);
 
 Retrieve all wizards that have no powers.
 
