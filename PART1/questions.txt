@@ -1,0 +1,57 @@
+Now, answer these questions:
+
+1. What is Sinatra? Where does it run?
+
+Sinatra is a framework for making simple web applications in Ruby. It is an alternative to other frameworks like rails that are better suited for database-intensive apps. Sinatra can run locally on your computer as well on a remote host like Heroku.
+
+
+
+What is a Gemfile? How do you use it in your Sinatra Application? Give step by step instructions.
+
+Gemfiles serve as the hub of all ruby gems (pre-built scripts) that you want to use in your application. To set up your Gemfile follow these steps: 
+
+1. require source 'https://rubygems.org' at the top of the file
+2. write "gem 'gem' for each gem 
+3. separate gems into groups if preferred (say for development vs. production)
+4. run bundle install from the root of app in the command line
+5. require Bundler in app.rb
+
+What is an ORM? What are the basic features of an ORM? Why is it helpful?
+
+ORMs (object-relational mapping) allows you to relate instantiated objects in your programming language to rows in a database (e.g., Cat.new would correspond to row X in the DB)
+
+There are many types of ORMS (active record, data mapper) but they are all based on the same commands that allow you to create, read, update and delete objects/rows from your database.These actions correspond to RESTful HTTP requests (GET POST PUT DELETE).
+
+
+What is the public folder? What do we use it for?
+
+A public folder is where we store our CSS, JS, and assets.It's the visual design component of an application.
+
+What is REST? Why is it useful?
+
+
+REST is useful because it gives us a vocabulary for describing HTTP requests in terms of creating, reading, updating, and deleting objects.
+
+
+
+Suppose I, with my browser, send an HTTP get request to the route that will render the view of all the SpaceCats. Walk me through step by step how your application handles that request.
+
+
+1. app.rb tries to find a match between the route and the type of request (in this case GET)
+
+2. if there's a match, the app defers to the model to instantiate an object with attributes. 
+
+3. the model talks to the database and stores the kitty cayutt in a row in the database. 
+
+4 the model returns the cat object in a string to app.rb, where it is stored in an instance variable. 
+
+5. app.rb says "yo" view, checkout these kitties and passes them to the view
+
+6. the all view catches the kitties and iterates over each one, calling instance methods on each (name, powers, hairballs, etc.)
+
+7. Rack massages the HTML string that is sent to the browser to display kitties
+
+8. independently of all of this process we run our migrations to create the table in the database
+
+9. Config.ru and Gemfile make all of this possible with magical BUNNIES
+
