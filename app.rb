@@ -12,7 +12,7 @@ module Rabbits
 
     get '/' do 
       @cats = SpaceCat.all
-      haml :index
+      haml :all
     end
 
     get 'new' do
@@ -42,6 +42,12 @@ module Rabbits
     get 'delete' do
       @cat = SpaceCat.delete(params[:id])
       haml 
+    end
+
+    helpers do
+      def partial(file_name)
+        erb file_name, layout => false
+      end
     end
 
   end

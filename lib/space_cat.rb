@@ -1,6 +1,6 @@
 class SpaceCat < Sinatra::Application
 
-  attr_reader: :name, :home_planet, :tagline, :superpower
+  attr_reader :name, :home_planet, :tagline, :superpower
 
   def initialize(name, home_planter, tagline, superpower)
     @name = name
@@ -8,5 +8,5 @@ class SpaceCat < Sinatra::Application
     @tagline = tagline
     @superpower = superpower
   end
-  
+
 end
