@@ -131,4 +131,4 @@ WHERE SUM(power1, power2) = 5;
 
 -- When would I want to use an outer join?
 
-Ack i really need to review this. Really.
+Ack i really need to review this.
