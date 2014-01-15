@@ -74,30 +74,53 @@ wiard_id,
 
 I can only see one way of doing this. This schema can easily answer which wizard has which has which power (when in the power table). On the other hand, I don't think it would do a good job of safegarding the relationship "powers belong to one wizard". Hmm. I'm not sure how to make that happen.
 
-Retrieve all the wizards with powers that have the letter "l" in them.
+-- Retrieve all the wizards with powers that have the letter "l" in them.
 
 SELECT * FROM wizards 
 WHERE Name LIKE 'l';
 
-Retrieve all the wizards who have a combined damage of 10 or more.
+-- Retrieve all the wizards who have a combined damage of 10 or more.
 
 SELECT * FROM wizards
 WHERE SUM(power1, power2) >= 10;
 
-Retrieve all the wizards sorted by their total damage. Your returned data should look like so.. wizard_name, total_damage.
+-- Retrieve all the wizards sorted by their total damage. Your returned data should look like so.. wizard_name, total_damage.
+
+SELECT * FROM wizards
+ORDER BY SUM(power1, power2);
 
 
-
-Create a wizard that has no powers.
+-- Create a wizard that has no powers.
 
 INSERT INTO wizards(name, age)
 VALUES ('Jasper', 5);
 
-Retrieve all wizards that have no powers.
+-- Retrieve all wizards that have no powers.
 
-Create a data model for wizards for a world where wizards have many powers and multiple wizards can have the same power. Create some sample records.
+SELECT * FROM wizards
+WHERE SUM(power1, power2) = 0;
 
-Retrieve the first wizard and any powers he/she has with damage greater than 5.
+-- Create a data model for wizards for a world where wizards have many powers and multiple wizards can have the same power. Create some sample records.
+
+CREATE DATABASE wizards;
+CREATE DATABASE powers;
+
+CREATE TABLE wizards
+(
+name varchar (255),
+age int,
+power1 varchar (255),
+power2 varchar (255),
+);
+
+CREATE TABLE powers
+(
+name varchar (255),
+damage_amount int,
+wizard_id,
+);
+
+-- Retrieve the first wizard and any powers he/she has with damage greater than 5.
 
 What's the difference between an outer and inner join?
 

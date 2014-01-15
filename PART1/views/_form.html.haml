@@ -1,5 +1,19 @@
 %h1 create a new spacecat
 
-%ul 
+:name, :home_planet, :tagline, :superpower
 
-% submit
+%form action="/contact" method="POST"
+
+  %label for="POST">Name:
+  %input id="POST" type="text" name="first"
+
+  %label for="POST">Home planet:
+  %input id="POST" type="text" home_planet="last"
+
+  %label for="POST">tagline:
+  %input id="POST" type="text" tagline="last"
+
+  %label for="POST">superpower:
+  %input id="POST" type="text" superpower="last"
+
+%button type="submit" value="Submit" Submit
