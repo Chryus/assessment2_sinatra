@@ -122,8 +122,13 @@ wizard_id,
 
 -- Retrieve the first wizard and any powers he/she has with damage greater than 5.
 
-What's the difference between an outer and inner join?
+SELECT FIRST * FROM wizards 
+WHERE SUM(power1, power2) = 5;
 
-If I just write JOIN, is that an inner or outer join?
+-- What's the difference between an outer and inner join?
 
-When would I want to use an outer join?
+-- If I just write JOIN, is that an inner or outer join?
+
+-- When would I want to use an outer join?
+
+Ack i really need to review this.
